@@ -1,3 +1,5 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+    $(#loginBtn).click(){
+        console.log("btn hit");
+    }
 });
