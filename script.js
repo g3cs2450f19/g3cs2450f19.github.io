@@ -1,5 +1,6 @@
 $( document ).ready(function() {
-    $(#loginBtn).click(){
+    $(.form-signin).submit(){
         console.log("btn hit");
     }
+    $(".card-signin").
 });
