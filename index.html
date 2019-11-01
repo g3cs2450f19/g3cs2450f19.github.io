@@ -27,18 +27,24 @@ For CS 2450 at UVU -->
 		<div class="card my-5">
 			<div class="card-body">
 			<h5 class="card-title text-center">Abacus</h5>
+			<div class="alert alert-danger" id="incorrectPass" role="alert">
+				Username or Password was incorrect.
+				<button type="button" class="close" id="hideIncorrectPass">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 			<form class="form-group" id="login">
 				<div class="form-label-group">
-				<input type="text" id="inputUserName" class="form-control" placeholder="Username" required autofocus>
+				<input type="text" name="inputUserName" class="form-control" placeholder="Username" required autofocus>
 				<label for="inputUserName">Username</label>
 				</div>
 
 				<div class="form-label-group">
-				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
 				<label for="inputPassword">Password</label>
 				</div>
 				
-				<button class="btn btn-primary text-uppercase" type="submit">Sign in</button>
+				<button class="btn btn-primary text-uppercase" id="test" type="submit">Sign in</button>
 				<!--<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>-->
 				<hr class="my-4">
 			</form>
@@ -47,7 +53,6 @@ For CS 2450 at UVU -->
 		</div>
 	</div>
   </div>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
