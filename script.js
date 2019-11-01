@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $(".form-signin").submit(){
+    $(".form-signin").submit(function() {
         console.log("btn hit");
     });
 });
