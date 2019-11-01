@@ -1,3 +1,3 @@
-$(onLoad() {
-    console.log("Hit on Load");
+$( document ).ready(function() {
+    console.log( "ready!" );
 });
