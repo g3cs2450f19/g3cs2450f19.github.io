@@ -17,9 +17,9 @@ $( document ).ready(function() {
         if (userName == "teacher" && password == "teacher") {
             // Login and redirect to teacher page
             console.log("Teacher Login");
-            window.location.replace("http://g3cs2450f19.github.io/student-list.html");
+            window.location.replace("http://g3cs2450f19.github.io/teacher/student-list.html");
         } else if (userName == "student" && password == "student") {
-            window.location.replace("http://g3cs2450f19.github.io/practice.html");
+            window.location.replace("http://g3cs2450f19.github.io/student/practice.html");
         } else {
             $("#incorrectPass").show();
         }
