@@ -17,6 +17,7 @@ $( document ).ready(function() {
         if (userName == "teacher" && password == "teacher") {
             // Login and redirect to teacher page
             console.log("Teacher Login");
+            window.location.replace("http://g3cs2450f19.github.io/teacher.html");
         } else if (userName == "student" && password == "student") {
             console.log("Student Login");
         } else {
