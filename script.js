@@ -19,7 +19,7 @@ $( document ).ready(function() {
             console.log("Teacher Login");
             window.location.replace("http://g3cs2450f19.github.io/teacher.html");
         } else if (userName == "student" && password == "student") {
-            console.log("Student Login");
+            window.location.replace("http://g3cs2450f19.github.io/practice.html");
         } else {
             $("#incorrectPass").show();
         }
