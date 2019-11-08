@@ -1,4 +1,9 @@
-$( document ).ready(function() {
+// <loadIn() Function
+// <This handler preps all the other handles for every jquery function that is needed>
+//
+// @return: none
+// @param: none
+$( document ).ready(loadIn() {
 //------------ LOGIN PAGE METHODS ------------
     // Password Mng    
     $("#incorrectPass").hide();
@@ -7,8 +12,12 @@ $( document ).ready(function() {
         $("#incorrectPass").hide();
     });
 
-    // Login Handler
-    $("#login").submit(function(e) {
+    // <loginHandler(e) Function
+    // <Handles the sign in commaned and redirect from main page.>
+    // @return: none
+    // @param: 
+    //      - e, the jquery event object to be cancelled
+    $("#login").submit(loginHandler(e) {
         e.preventDefault();
         data = $(":input").serializeArray();
         
@@ -20,10 +29,23 @@ $( document ).ready(function() {
             window.location.replace("http://g3cs2450f19.github.io/teacher/student-list.html");
         } else if (userName == "student" && password == "student") {
             window.location.replace("http://g3cs2450f19.github.io/student/practice.html");
+        } else if (userName == "IT" && password == "IT") {
+            window.location.replace("http://g3cs2450f19.github.io/IT/report-bug.html");
         } else {
             $("#incorrectPass").show();
         }
         $(".form-control").val("");
+    });
+
+
+    // <submitBugReportHandler(e) Function
+    // <Handles the IT dept. submission of bugs>
+    // @return: none
+    // @param:
+    //      - e, the jquery event object to be cancelled
+    $("#submitBugReport").submit(submitBugReportHandler(e) {
+        e.preventDefault();
+        console.log("hit");
     });
 
 });
