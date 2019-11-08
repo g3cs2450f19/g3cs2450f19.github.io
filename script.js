@@ -5,11 +5,11 @@
 // @param: none
 $( document ).ready(function() {
 //------------ LOGIN PAGE METHODS ------------
-    // <hideLoginAlert() Function
-    // <Hides the login alert element.>
+    // <hideAlerts() Function
+    // <Hides the alert element.>
     // @return: none
     // @param: none
-    $("#incorrectPass").hide();
+    $(".alert").hide();
     
     // <dismissLoginAlert() Function
     // <Handles dismissing the login alert.>
@@ -52,7 +52,7 @@ $( document ).ready(function() {
     //      - e, the jquery event object to be cancelled
     $("#submitBugReport").submit(function(e) {
         e.preventDefault();
-        console.log("hit");
+        $("#submitBugReport").get(0).reset();
     });
 
 });
