@@ -6,13 +6,13 @@
 $( document ).ready(function() {
 //------------ LOGIN PAGE METHODS ------------
     // <hideAlerts() Function
-    // <Hides the alert element.>
+    // <Global function that handles hiding all alert elements>
     // @return: none
     // @param: none
     $(".alert").hide();
     
     // <dismissAlert() Function
-    // <Handles dismissing the login alert.>
+    // <Functions dedicated to dismissing alert functions>
     // @return: none
     // @param: none
     $("#hideIncorrectPass").click(function(e){
@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
 
     // <loginHandler(e) Function
-    // <Handles the sign in commaned and redirect from main page.>
+    // <Handles the sign in commaned and redirect from main page. Currently hard-coded but later will be linked with a server.>
     // @return: none
     // @param: 
     //      - e, the jquery event object to be cancelled
