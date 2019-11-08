@@ -5,9 +5,16 @@
 // @param: none
 $( document ).ready(function() {
 //------------ LOGIN PAGE METHODS ------------
-    // Password Mng    
+    // <hideLoginAlert() Function
+    // <Hides the login alert element.>
+    // @return: none
+    // @param: none
     $("#incorrectPass").hide();
     
+    // <dismissLoginAlert() Function
+    // <Handles dismissing the login alert.>
+    // @return: none
+    // @param: none
     $("#hideIncorrectPass").click(function(e){
         $("#incorrectPass").hide();
     });
