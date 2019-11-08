@@ -11,13 +11,17 @@ $( document ).ready(function() {
     // @param: none
     $(".alert").hide();
     
-    // <dismissLoginAlert() Function
+    // <dismissAlert() Function
     // <Handles dismissing the login alert.>
     // @return: none
     // @param: none
     $("#hideIncorrectPass").click(function(e){
         $("#incorrectPass").hide();
     });
+    $("#hideSuccessBugReport").click(function(e){
+        $("#successBugReport").hide();
+    });
+
 
     // <loginHandler(e) Function
     // <Handles the sign in commaned and redirect from main page.>
@@ -53,6 +57,7 @@ $( document ).ready(function() {
     $("#submitBugReport").submit(function(e) {
         e.preventDefault();
         $("#submitBugReport").get(0).reset();
+        $("#successBugReport").show();
     });
 
 });
