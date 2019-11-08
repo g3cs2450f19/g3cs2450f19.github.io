@@ -3,7 +3,7 @@
 //
 // @return: none
 // @param: none
-$( document ).ready(loadIn() {
+$( document ).ready(function() {
 //------------ LOGIN PAGE METHODS ------------
     // Password Mng    
     $("#incorrectPass").hide();
@@ -17,7 +17,7 @@ $( document ).ready(loadIn() {
     // @return: none
     // @param: 
     //      - e, the jquery event object to be cancelled
-    $("#login").submit(loginHandler(e) {
+    $("#login").submit(function(e) {
         e.preventDefault();
         data = $(":input").serializeArray();
         
@@ -43,7 +43,7 @@ $( document ).ready(loadIn() {
     // @return: none
     // @param:
     //      - e, the jquery event object to be cancelled
-    $("#submitBugReport").submit(submitBugReportHandler(e) {
+    $("#submitBugReport").submit(function(e) {
         e.preventDefault();
         console.log("hit");
     });
