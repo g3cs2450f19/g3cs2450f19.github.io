@@ -39,7 +39,7 @@ $( document ).ready(function() {
             console.log("Teacher Login");
             window.location.replace("http://g3cs2450f19.github.io/teacher/student-list.html");
         } else if (userName == "student" && password == "student") {
-            window.location.replace("http://g3cs2450f19.github.io/student/practice.html");
+            window.location.replace("http://g3cs2450f19.github.io/student/abacus.html");
         } else if (userName == "IT" && password == "IT") {
             window.location.replace("http://g3cs2450f19.github.io/IT/report-bug.html");
         } else {

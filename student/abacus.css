@@ -1,0 +1,176 @@
+html {
+    height: 100%;
+    background-color: #EEEEEE
+}
+
+body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+}
+
+#left-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#abacus-container {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+#abacus {
+    display: flex;
+    flex-direction: column;
+    flex: 9;
+    border: 2px;
+    border-color: black;
+}
+
+#abacus-top {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-style: solid;
+    border-width: 10px;
+    border-bottom-width: 5px;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#abacus-bottom {
+    flex: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-style: solid;
+    border-width: 10px;
+    border-top-width: 5px;
+}
+
+.bottom-row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#numbers {
+    flex: 1;
+}
+
+#right-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bead {
+    width: 60px;
+    height: 45px;
+    background-color: black;
+    border-radius: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#top-row-1 > .bead, #bottom-row-1 > .bead {
+    background-color: hsl(240, 80%, 40%);
+}
+
+#top-row-2 > .bead, #bottom-row-2 > .bead {
+    background-color: hsl(200, 80%, 40%);
+}
+
+#top-row-3 > .bead, #bottom-row-3 > .bead {
+    background-color: hsl(160, 80%, 40%);
+}
+
+#top-row-4 > .bead, #bottom-row-4 > .bead {
+    background-color: hsl(120, 80%, 40%);
+}
+
+#top-row-5 > .bead, #bottom-row-5 > .bead {
+    background-color: hsl(80, 80%, 40%);
+}
+
+#top-row-6 > .bead, #bottom-row-6 > .bead {
+    background-color: hsl(40, 80%, 40%);
+}
+
+#top-row-7 > .bead, #bottom-row-7 > .bead {
+    background-color: hsl(0, 80%, 40%);
+}
+
+.button {
+    background-color: #006666;
+    color: #CCCCCC;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0px;
+    border-radius: 12px;
+    width: 100px;
+}
+
+.display-box {
+    background-color: #006666;
+    color: #CCCCCC;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0px;
+    width: 100px;
+}
+
+.space {
+    width: 12px;
+    background-color: #804000;
+    margin: 0 auto;
+}
+
+.grow-space {
+    flex: 1;
+}
+
+.disabled-row {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.space-grow {
+    animation-name: grow-animation;
+    animation-duration: 0.5s;
+}
+
+.space-shrink {
+    animation-name: shrink-animation;
+    animation-duration: 0.5s;
+}
+
+@keyframes grow-animation {
+    0%   {flex: 0;}
+    100% {flex: 1;}
+}
+
+@keyframes shrink-animation {
+    0%   {flex: 1;}
+    100% {flex: 0;}
+}
