@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin: 0 5px;
 }
 
 #abacus-bottom {
@@ -68,6 +69,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin: 0 5px;
 }
 
 #numbers {
@@ -83,7 +85,6 @@ body {
 }
 
 .bead {
-    width: 60px;
     height: 45px;
     background-color: black;
     border-radius: 50%;
@@ -91,32 +92,12 @@ body {
     cursor: pointer;
 }
 
-#top-row-1 > .bead, #bottom-row-1 > .bead {
-    background-color: hsl(240, 80%, 40%);
+.normal-bead {
+    width: 60px;
 }
 
-#top-row-2 > .bead, #bottom-row-2 > .bead {
-    background-color: hsl(200, 80%, 40%);
-}
-
-#top-row-3 > .bead, #bottom-row-3 > .bead {
-    background-color: hsl(160, 80%, 40%);
-}
-
-#top-row-4 > .bead, #bottom-row-4 > .bead {
-    background-color: hsl(120, 80%, 40%);
-}
-
-#top-row-5 > .bead, #bottom-row-5 > .bead {
-    background-color: hsl(80, 80%, 40%);
-}
-
-#top-row-6 > .bead, #bottom-row-6 > .bead {
-    background-color: hsl(40, 80%, 40%);
-}
-
-#top-row-7 > .bead, #bottom-row-7 > .bead {
-    background-color: hsl(0, 80%, 40%);
+.skinny-bead {
+    width: 100%;
 }
 
 .button {
@@ -130,6 +111,10 @@ body {
     width: 100px;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .display-box {
     background-color: #006666;
     color: #CCCCCC;
@@ -138,6 +123,10 @@ body {
     font-size: 20px;
     margin: 20px 0px;
     width: 100px;
+}
+
+input {
+    width: 80px;
 }
 
 .space {

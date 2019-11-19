@@ -1,11 +1,9 @@
 function shiftBeads(beadId)
 {
-    console.log("DEBUG shiftBeads(), beadId is " + beadId);
     var row = parseInt(beadId.charAt(5), 10);
     var bead = parseInt(beadId.charAt(7), 10);
 
     var oldSpace;
-//    var oldSpaceRow = row;
     var oldSpaceNum;
     var oldSpaceOffset = 0;
 
@@ -35,10 +33,87 @@ function shiftBeads(beadId)
 
     var newSpace = document.getElementById("space-" + row + "-" + (bead + newSpaceNumOffset));
 
+    if(oldSpace === null || newSpace === null)
+    {
+        console.log("Jesse debug @ shiftBeads, oldSpace and newSpace are " + oldSpace + " and " + newSpace);
+    }
+
     oldSpace.className = 'space';
     newSpace.className = 'space';
 
     newSpace.classList.add("grow-space");
     oldSpace.classList.add("space-shrink");
     newSpace.classList.add("space-grow");
+}
+
+function solve()
+{
+    var value = Math.floor(document.getElementById("input").value);
+    document.getElementById("input").value = value;
+
+    for(var i = 0; i < rowCount; i++)
+    {
+        var digit = value % Math.pow(10, i + 1);
+        if(digit < Math.pow(10, i))
+        {
+            digit = 0;
+        }
+        else
+        {
+            while(digit > 9)
+            {
+                digit = Math.floor(digit / 10);
+            }
+        }
+
+        setRow(rowCount - i, digit);
+    }
+}
+
+function setRow(column, digit)
+{
+    var topBeadsDiv = document.getElementById("top-row-" + column);
+    var bottomBeadsDiv = document.getElementById("bottom-row-" + column);
+
+    var topValue = Math.floor(digit / 5);
+    var bottomValue = digit % 5;
+    
+    for(var i = 0; i < 9; i++)
+    {
+        var spaceDiv = document.getElementById("space-" + column + "-" + i);
+        var isGrown = hasClass(spaceDiv, "grow-space")
+
+        if(i !== (2 - topValue) && i !== (3 + bottomValue) && isGrown) // needs to shrink
+        {
+            spaceDiv.className = 'space';
+            spaceDiv.classList.add("space-shrink");
+        }
+        else if((i === (2 - topValue) || i === (3 + bottomValue)) && !isGrown) // needs to grow
+        {
+            spaceDiv.className = 'space';
+            spaceDiv.classList.add("grow-space");
+            spaceDiv.classList.add("space-grow");
+        }
+    }
+}
+
+function reset()
+{
+    for(var i = 1; i <= rowCount; i++)
+    {
+        setRow(i, 0);
+    }
+}
+
+function hasClass(div, className)
+{
+    returnVal = false;
+    for(var i = 0; i < div.classList.length; i++)
+    {
+        if(div.classList[i] === className)
+        {
+            returnVal = true;
+        }
+    }
+    return returnVal;
 }
