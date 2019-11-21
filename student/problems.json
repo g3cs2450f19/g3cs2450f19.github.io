@@ -58,9 +58,65 @@
         },
         {
             "level": 2,
+            "levelUp": 12,
             "problems":
             [
-                
+                {
+                    "problem": "176 - 33",
+                    "solution": 143
+                },
+                {
+                    "problem": "94 - 28",
+                    "solution": 66
+                },
+                {
+                    "problem": "11 - 4",
+                    "solution": 7
+                },
+                {
+                    "problem": "78 - 37",
+                    "solution": 41
+                },
+                {
+                    "problem": "97 - 30",
+                    "solution": 67
+                },
+                {
+                    "problem": "51 - 10",
+                    "solution": 41
+                },
+                {
+                    "problem": "15 - 5",
+                    "solution": 10
+                },
+                {
+                    "problem": "65 - 23",
+                    "solution": 42
+                },
+                {
+                    "problem": "70 - 9",
+                    "solution": 61
+                },
+                {
+                    "problem": "8 - 5",
+                    "solution": 3
+                },
+                {
+                    "problem": "17 - 11",
+                    "solution": 6
+                },
+                {
+                    "problem": "70 + 35",
+                    "solution": 35
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "levelUp": 100,
+            "problems":
+            [
+
             ]
         }
     ]
