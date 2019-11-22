@@ -116,7 +116,10 @@
             "levelUp": 100,
             "problems":
             [
-
+                {
+                    "problem": "DEMO",
+                    "solution": -1
+                }
             ]
         }
     ]

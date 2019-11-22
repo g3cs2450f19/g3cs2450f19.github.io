@@ -130,10 +130,7 @@ body {
 
 .selected-button {
     background-color: #047878;
-}
-
-.selected-button:hover {
-    cursor: default;
+    pointer-events: none;
 }
 
 .display-box {

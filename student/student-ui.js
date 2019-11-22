@@ -5,6 +5,7 @@ var problemsJson;
 var level;
 var currentProblemId;
 var currentProblem;
+var levelUpScore;
 
 (function()
 {
@@ -22,6 +23,7 @@ function setup() {
     document.getElementById('left-sidebar').innerHTML = '<div id="level">Level: 1</div>' +
                 '<div id="nav-practice" class="button selected-button">Practice</div>' +
                 '<div id="nav-exercises" class="button">Exercises</div>' +
+                '<div id="nav-interpret" class="button">Interpret</div>' +
                 '<div id="debug" class="button">Debug</div>';
     document.getElementById('abacus-container').innerHTML = '<div id="abacus"></div>' +
                 '<div id="numbers"></div>';
@@ -54,6 +56,7 @@ function setup() {
         .catch(err => { throw err });
 
     level = 0;
+    levelUpScore = 0;
 }
 
 function connectButtons() {
@@ -63,6 +66,9 @@ function connectButtons() {
     document.getElementById("nav-exercises").onclick = function() {
         changeToExercises();
     };
+    document.getElementById("nav-interpret").onclick = function() {
+        changeToInterpret();
+    };
     document.getElementById("debug").onclick = function() {
         debug();
     };
@@ -71,10 +77,13 @@ function connectButtons() {
     };
     document.getElementById("input").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
-            solve();
+            if(viewerState === 'practice') {
+                solve();
+            } else if(viewerState === 'interpret') {
+                submit();
+            }
         }
     });
-
     document.getElementById("nav-prev").onclick = function() {
         let nextProblemId = currentProblemId - 1;
         if(nextProblemId < 0) {
@@ -94,8 +103,12 @@ function connectButtons() {
     };
 
     document.getElementById("nav-reset").onclick = function() {
-        theAbacusDisplay.solve(0);
-        updateNumbers();
+        if(viewerState !== 'interpret') {
+            theAbacusDisplay.solve(0);
+            updateNumbers();
+        } else {
+            randomize(Math.pow(10, theAbacusDisplay.getColumnCount()) - 1);
+        }
     };
     document.getElementById("show-hide").onclick = function() {
         toggleShowHide();
@@ -133,9 +146,13 @@ function beadClick(beadId) {
 function changeToPractice() {
     if(viewerState !== 'practice') {
         viewerState = 'practice';
+        if(document.getElementById('space-1-1')) {
+            theAbacusDisplay.solve(0);
+        }
 
         document.getElementById('nav-exercises').classList.remove('selected-button');
         document.getElementById('nav-practice').classList.add('selected-button');
+        document.getElementById('nav-interpret').classList.remove('selected-button');
 
         document.getElementById('display-mode').innerHTML = 'Practice';
         
@@ -160,12 +177,14 @@ function changeToPractice() {
 function changeToExercises() {
     let randomId = Math.floor(Math.random() * problemsJson[level].problems.length);
     chooseExercise(randomId);
+    theAbacusDisplay.solve(0);
     
     if(viewerState !== 'exercises') {
         viewerState = 'exercises';
 
         document.getElementById('nav-practice').classList.remove('selected-button');
         document.getElementById('nav-exercises').classList.add('selected-button');
+        document.getElementById('nav-interpret').classList.remove('selected-button');
 
         document.getElementById('display-mode').innerHTML = 'Exercises';
 
@@ -177,6 +196,32 @@ function changeToExercises() {
         document.getElementById('display-question').classList.remove('hidden');
         document.getElementById('nav-prev').classList.remove('hidden');
         document.getElementById('nav-next').classList.remove('hidden');
+        document.getElementById('nav-submit').classList.remove('hidden');
+
+        document.getElementById('numbers').classList.add('invisible');
+    }
+}
+
+function changeToInterpret() {
+    if(viewerState !== 'interpret') {
+        viewerState = 'interpret';
+        document.getElementById('input').value = '';
+        randomize(Math.pow(10, theAbacusDisplay.getColumnCount()) - 1);
+
+        document.getElementById('nav-practice').classList.remove('selected-button');
+        document.getElementById('nav-exercises').classList.remove('selected-button');
+        document.getElementById('nav-interpret').classList.add('selected-button');
+
+        document.getElementById('display-mode').innerHTML = 'Interpret';
+
+        document.getElementById('nav-solve').classList.add('hidden');
+        document.getElementById('show-hide').classList.add('hidden');
+        document.getElementById('p-question').classList.add('hidden');
+        document.getElementById('display-question').classList.add('hidden');
+        document.getElementById('nav-prev').classList.add('hidden');
+        document.getElementById('nav-next').classList.add('hidden');
+
+        document.getElementById('input-div').classList.remove('hidden');
         document.getElementById('nav-submit').classList.remove('hidden');
 
         document.getElementById('numbers').classList.add('invisible');
@@ -231,10 +276,39 @@ function updateNumbers() {
 }
 
 function submit() {
-    if(theAbacusDisplay.getValue() == currentProblem.solution) {
-        showPopup('Correct!');
-    } else {
-        showPopup('Incorrect. Please try again.');
+    if(viewerState === 'exercises') {
+        if(theAbacusDisplay.getValue() == currentProblem.solution) {
+            showPopup('Correct!');
+            levelUpScore++;
+            levelUp();
+            let randomId = Math.floor(Math.random() * problemsJson[level].problems.length);
+            chooseExercise(randomId);
+        } else {
+            showPopup('Incorrect. Please try again.');
+        }
+    } else if(viewerState === 'interpret') {
+        if(theAbacusDisplay.getValue() == document.getElementById('input').value) {
+            showPopup('Correct!');
+            randomize(Math.pow(10, theAbacusDisplay.getColumnCount()) - 1);
+        } else {
+            showPopup('Incorrect. Please try again.\nOr press "Reset" to try another number.');
+        }
+    }
+}
+
+function randomize(maxNum) {
+    let randomNum = Math.floor(Math.random() * maxNum);
+    theAbacusDisplay.solve(randomNum);
+    theAbacusDisplay.updateValue();
+}
+
+function levelUp() {
+    if(levelUpScore >= problemsJson[level].levelUp) {
+        level++;
+        showPopup('Correct!\nCongrats! You have unlocked Level ' + (level + 1) +
+            '\nNote: level 3 has not been implemented in this prototype.');
+        document.getElementById('level').innerHTML = 'Level: ' + (level + 1);
+        levelUpScore = 0;
     }
 }
 

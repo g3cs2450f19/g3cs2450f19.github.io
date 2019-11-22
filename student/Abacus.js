@@ -25,16 +25,16 @@ class Abacus {
         let bottomValue = newDigit % 5;
         
         for(let i = 0; i < 9; i++) {
-            let spaceDiv = document.getElementById("space-" + column + "-" + i);
-            let isGrown = hasClass(spaceDiv, "grow-space")
+            let spaceDiv = document.getElementById('space-' + column + '-' + i);
+            let isGrown = hasClass(spaceDiv, 'grow-space');
     
             if(i !== (2 - topValue) && i !== (3 + bottomValue) && isGrown) { // needs to shrink
                 spaceDiv.className = 'space';
                 spaceDiv.classList.add("space-shrink");
             } else if((i === (2 - topValue) || i === (3 + bottomValue)) && !isGrown) { // needs to grow
                 spaceDiv.className = 'space';
-                spaceDiv.classList.add("grow-space");
-                spaceDiv.classList.add("space-grow");
+                spaceDiv.classList.add('grow-space');
+                spaceDiv.classList.add('space-grow');
             }
         }
     }
@@ -42,7 +42,7 @@ class Abacus {
     updateValue() {
         this.value = 0;
         let placeHolder = 1;
-        let spaceArray = document.getElementsByClassName("grow-space");
+        let spaceArray = document.getElementsByClassName('grow-space');
         let space1Num, space2Num;
         for(let i = 0; i < this.columnCount; i++) {
             space1Num = Number(spaceArray[i].id.match(/\d+/g)[1]);

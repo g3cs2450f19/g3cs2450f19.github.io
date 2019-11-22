@@ -118,6 +118,10 @@ class AbacusDisplay {
         this.theAbacus.updateBeads();
     }
 
+    updateValue() {
+        this.theAbacus.updateValue();
+    }
+
     getColumnCount() {
         return this.theAbacus.getColumnCount();
     }
