@@ -24,6 +24,7 @@ function setup() {
                 '<div id="nav-practice" class="button selected-button">Practice</div>' +
                 '<div id="nav-exercises" class="button">Exercises</div>' +
                 '<div id="nav-interpret" class="button">Interpret</div>' +
+                '<div id="nav-logout" class="button">Logout</div>' +
                 '<div id="debug" class="button">Debug</div>';
     document.getElementById('abacus-container').innerHTML = '<div id="abacus"></div>' +
                 '<div id="numbers"></div>';
@@ -33,7 +34,7 @@ function setup() {
                 '<div id="input-div" class="display-box"><input id="input" type="number" name="input"></div>' +
                 '<div id="nav-solve" class="button">Solve</div>' +
                 '<div id="show-hide" class="button">Show</div>' +
-                '<div id="nav-prev" class="button">Prev</div>' +
+                '<div id="nav-prev" class="button">Previous</div>' +
                 '<div id="nav-next" class="button">Next</div>' +
                     '<div class="format-box-of-lazy"></div>' +
                 '<div id="nav-submit" class="button">Submit</div>' +
@@ -68,6 +69,9 @@ function connectButtons() {
     };
     document.getElementById("nav-interpret").onclick = function() {
         changeToInterpret();
+    };
+    document.getElementById("nav-logout").onclick = function() {
+        window.location.href = 'https://g3cs2450f19.github.io/';
     };
     document.getElementById("debug").onclick = function() {
         debug();
