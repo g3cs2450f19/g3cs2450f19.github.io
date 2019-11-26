@@ -122,8 +122,10 @@ function connectButtons() {
         document.getElementById('popup-box').classList.add('hidden');
     };
     document.getElementById("popup-box").onclick = function() {
-        document.getElementById('popup-container').classList.add('hidden');
-        document.getElementById('popup-box').classList.add('hidden');
+        if(!document.getElementById('popup-box').innerHTML.includes('debug')) {
+            document.getElementById('popup-container').classList.add('hidden');
+            document.getElementById('popup-box').classList.add('hidden');
+        }
     };
 }
 
