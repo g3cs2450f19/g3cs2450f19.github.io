@@ -121,6 +121,10 @@ function connectButtons() {
         document.getElementById('popup-container').classList.add('hidden');
         document.getElementById('popup-box').classList.add('hidden');
     };
+    document.getElementById("popup-box").onclick = function() {
+        document.getElementById('popup-container').classList.add('hidden');
+        document.getElementById('popup-box').classList.add('hidden');
+    };
 }
 
 function solve() {
