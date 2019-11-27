@@ -335,6 +335,15 @@ function levelUp() {
             '\nNote: level 3 has not been implemented in this prototype.');
         document.getElementById('level').innerHTML = 'Level: ' + (level + 1);
         levelUpScore = 0;
+        if(level === 1) {
+            theAbacusDisplay.updateColumns(7);
+            updateNumbers();
+            theAbacusDisplay.updateBeads();
+        } else if(level === 2) {
+            theAbacusDisplay.updateColumns(10);
+            updateNumbers();
+            theAbacusDisplay.updateBeads();
+        }
     }
 }
 

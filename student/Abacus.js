@@ -1,4 +1,4 @@
-const DEFAULT_COLUMN_COUNT = 7;
+const DEFAULT_COLUMN_COUNT = 4;
 const MAX_COLUMN_COUNT = 20;
 
 class Abacus {
