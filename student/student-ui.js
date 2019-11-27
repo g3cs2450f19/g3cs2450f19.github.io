@@ -44,6 +44,7 @@ function setup() {
     toggleShowHide();
     
     connectButtons();
+    addTooltips();
     theAbacusDisplay.addAbacus();
 
     let url = 'https://raw.githubusercontent.com/g3cs2450f19/g3cs2450f19.github.io/master/student/problems.json';
@@ -127,6 +128,21 @@ function connectButtons() {
             document.getElementById('popup-box').classList.add('hidden');
         }
     };
+}
+
+function addTooltips() {
+    document.getElementById('nav-practice').setAttribute('title', 'Practice with the abacus. See the values of each column or set a value for the whole abacus.');
+    document.getElementById('nav-exercises').setAttribute('title', 'Move the beads to solve the arithmetic problem.');
+    document.getElementById('nav-interpret').setAttribute('title', 'Exercises where you must enter the value of the abacus');
+    document.getElementById('nav-logout').setAttribute('title', 'Return to the starting page');
+    document.getElementById('debug').setAttribute('title', 'Options for testing purposes');
+    document.getElementById('input-div').setAttribute('title', 'Enter your answer here');
+    document.getElementById('nav-solve').setAttribute('title', 'Automatically move all the beads to equal the value entered');
+    document.getElementById('show-hide').setAttribute('title', 'Toggle whether the value appears underneath the abacus');
+    document.getElementById('nav-prev').setAttribute('title', 'Go to the previous Exercise');
+    document.getElementById('nav-next').setAttribute('title', 'Go to the next Exercise');
+    document.getElementById('nav-submit').setAttribute('title', 'Submit your answer');
+    document.getElementById('nav-reset').setAttribute('title', 'Set the abacus to 0 in Practice or Exercises mode, or another random value for Interpret mode');
 }
 
 function solve() {
