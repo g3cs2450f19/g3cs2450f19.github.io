@@ -1,6 +1,8 @@
 {
     "levels":
     {
-        "level-1" : "Welcome to the abacus!\n to use the abacus simply click on a bead and that beads value will be added.\n Each column from right to left represents a new place such as 1 10 100 etc.\n The beads on top are worth 5 beads.\n  As you use the abacus you will find that there are three modes.\nIn Practice mode you can play around with the abacus and learn how to better use it.\n in exersize mode you can attempt to solve problems that slowly get harder as you learn.\n in Interpret mode you can attempt to interpret the abacus in different states.\n"
+        "level-1" : "Welcome to the abacus!\n to use the abacus simply click on a bead and that beads value will be added.\n Each column from right to left represents a new place such as 1 10 100 etc.\n The beads on top are worth 5 beads.\n  As you use the abacus you will find that there are three modes.\nIn Practice mode you can play around with the abacus and learn how to better use it.\n in exersize mode you can attempt to solve problems that slowly get harder as you learn.\n in Interpret mode you can attempt to interpret the abacus in different states.\n",
+		"level-2" : "Welcome to Level 2. In this level you will be introduced to subtraction via the abacus. To Subtract using the abacus simply set the abacus to the first number and remove the second numbers worth of beads",
+		"level-3" : "Welcome to Level 3. In this level you will be introduced to negative number in order to deal with negative numbers simply subtract until you hit 0. Then hit the negative positive toggle button and add the remaining number of beads back to the abacus."
     }
 }

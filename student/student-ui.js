@@ -66,12 +66,12 @@ function setup() {
         .then((out) => {
             // console.log('Checkout this JSON!', out);
             tutorials = out.levels;
+			show_info()
         })
         .catch(err => { throw err });
 
     level = 0;
     levelUpScore = 0;
-	show_info()
 }
 
 function connectButtons() {
@@ -302,7 +302,6 @@ function updateNumbers() {
         }
         document.getElementById('numbers').innerHTML = numbersHTML;
         let value = theAbacusDisplay.getValue();
-		console.log(value)
         for(let i = 1; i <= columnCount; i++) {
             let digit = value % Math.pow(10, i);
             if(digit < Math.pow(10, i - 1)) {
