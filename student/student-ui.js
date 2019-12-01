@@ -2,6 +2,7 @@ var theAbacusDisplay;
 var viewerState;
 var showState;
 var problemsJson;
+var tutorials;
 var level;
 var currentProblemId;
 var currentProblem;
@@ -20,7 +21,8 @@ var levelUpScore;
 })();
 
 function setup() {
-    document.getElementById('left-sidebar').innerHTML = '<div id="level">Level: 1</div>' +
+    document.getElementById('left-sidebar').innerHTML =  '<div id="info" class="button">Info</div>' + 
+				'<div id="level">Level: 1</div>' +
                 '<div id="nav-practice" class="button selected-button">Practice</div>' +
                 '<div id="nav-exercises" class="button">Exercises</div>' +
                 '<div id="nav-interpret" class="button">Interpret</div>' +
@@ -57,11 +59,24 @@ function setup() {
         })
         .catch(err => { throw err });
 
+	url = 'https://raw.githubusercontent.com/g3cs2450f19/g3cs2450f19.github.io/master/student/tutorials.json';
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => {
+            // console.log('Checkout this JSON!', out);
+            tutorials = out.levels;
+        })
+        .catch(err => { throw err });
+
     level = 0;
     levelUpScore = 0;
+	show_info()
 }
 
 function connectButtons() {
+	document.getElementById("info").onclick = ()=> show_info();
+
     document.getElementById("nav-practice").onclick = function() {
         changeToPractice();
     };
@@ -109,6 +124,7 @@ function connectButtons() {
 
     document.getElementById("nav-reset").onclick = function() {
         if(viewerState !== 'interpret') {
+			if(viewerState === 'practice')document.getElementById("input").value = ""
             theAbacusDisplay.solve(0);
             updateNumbers();
         } else {
@@ -286,7 +302,7 @@ function updateNumbers() {
         }
         document.getElementById('numbers').innerHTML = numbersHTML;
         let value = theAbacusDisplay.getValue();
-
+		console.log(value)
         for(let i = 1; i <= columnCount; i++) {
             let digit = value % Math.pow(10, i);
             if(digit < Math.pow(10, i - 1)) {
@@ -344,7 +360,13 @@ function levelUp() {
             updateNumbers();
             theAbacusDisplay.updateBeads();
         }
+		show_info()
     }
+}
+
+function show_info()
+{
+	showPopup(tutorials["level-"+(level + 1)])
 }
 
 function showPopup(popupHTML) {

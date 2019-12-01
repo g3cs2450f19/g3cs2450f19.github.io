@@ -48,9 +48,14 @@ class Abacus {
             space1Num = Number(spaceArray[i].id.match(/\d+/g)[1]);
             space2Num = Number(spaceArray[i + this.columnCount].id.match(/\d+/g)[1]);
 
+			console.log(space1Num)
             if(space1Num === 1) {
                 this.value += (5 * placeHolder);
             }
+			if(space1Num == 0)
+			{
+				this.value += 10 * placeHolder;
+			}
 
             this.value += (space2Num - 3) * placeHolder;
 

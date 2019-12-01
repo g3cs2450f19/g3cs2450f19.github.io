@@ -83,7 +83,6 @@ class AbacusDisplay {
         let beadNumbers = beadId.match(/\d+/g);
         let column = Number(beadNumbers[0]);
         let beadNum = Number(beadNumbers[1]);
-
         let oldSpaceOffset = 0;
         if(beadNum > 2) {
             oldSpaceOffset = columnCount;
