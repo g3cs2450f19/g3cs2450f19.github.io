@@ -66,8 +66,19 @@ $( document ).ready(function() {
     // @return: none
     // @param:
     //      - e, the jquery event object to be updated for user viewing
-    $(".student-level").click(function(e) {
-        console.log("hit");
+    $(".student-level-overwrite").click(function(e) {
+        for (i = 0; i < studentArr.length; i++) {
+            studentTarget = { 
+                studentLevel: str.concat("#student", i);
+            };
+            var ajaxCall = {
+                url: '/data/updateStudentScore.php',
+                dataType: 'xml',
+                data: xml.stringify(studentTarget)
+                error: printError
+            };
+            $.ajax(ajaxCall);
+        }
     });
 
 });
