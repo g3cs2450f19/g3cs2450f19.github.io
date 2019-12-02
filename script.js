@@ -60,5 +60,15 @@ $( document ).ready(function() {
         $("#successBugReport").show();
     });
 
+//------------ STUDENT LIST METHODS ------------
+    // <overrideLevel(e) Function
+    // <Allows for override of student level>
+    // @return: none
+    // @param:
+    //      - e, the jquery event object to be updated for user viewing
+    $(".student-level").click(function(e) {
+        console.log("hit");
+    });
+
 });
 
